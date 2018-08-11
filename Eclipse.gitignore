@@ -1,4 +1,8 @@
 
+fonts/
+#graphics/
+sounds/
+
 .metadata
 bin/
 tmp/
