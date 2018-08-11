@@ -2,6 +2,7 @@
 fonts/
 #graphics/
 sounds/
+.gitignore
 
 .metadata
 bin/
