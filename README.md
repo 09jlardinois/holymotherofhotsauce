@@ -15,3 +15,6 @@ I've got lots of experience in Python and C#, and quite a bit in C++, and Lua is
 So I was wondering if y'all could look over my Breakout animator code and all that it involves. It's bad, I know. I apologize. 
 
 I have no clue how to use GitHub, but I guess I'll figure it out before I press Enter here. 
+
+
+Edit #1: deleted unecessary Paddle code.
