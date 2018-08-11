@@ -1,13 +1,23 @@
 --[[
+
     GD50 2018
+
     Breakout Remake
+
+
 
     -- constants --
 
+
+
     Author: Colton Ogden
+
     cogden@cs50.harvard.edu
 
+
+
     Some global constants for our application.
+
 ]]
 
 -- size of our actual window
@@ -18,8 +28,8 @@ VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
 
 gPrefixModes = {
-  ['animation'] = 'anim',
-  ['image'] = 'img'
+	['animation'] = 'anim',
+	['image'] = 'img'
 }
 
 ANIMATION_TICKER = 0.5
