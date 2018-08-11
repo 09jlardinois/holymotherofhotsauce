@@ -34,8 +34,6 @@ local highlighted = 1
 
 function StartState:init()
 
-	self.characterBug = Bug()
-
 end
 
 function StartState:update(dt)
@@ -44,21 +42,18 @@ function StartState:update(dt)
 		highlighted = highlighted == 1 and 2 or 1
 		gSounds['paddle-hit']:play()
 	end
-
-	-- we no longer have this globally, so include here
-	if love.keyboard.wasPressed('escape') then
-		love.event.quit()
+	
+	if love.keyboard.wasPressed('t') then
+		gStateMachine:change('test')
 	end
-
-	self.characterBug:update(dt)
-
+	
 end
 
 function StartState:render()
 
 	-- title
 	love.graphics.setFont(gFonts['largish'])
-	love.graphics.printf("BREAKOUT", 0, VIRTUAL_HEIGHT / 3 - 28,
+	love.graphics.printf("BREAKOUT", 0, VIRTUAL_HEIGHT / 4 - 30,
 		VIRTUAL_WIDTH, 'center')
 
 	-- instructions
@@ -86,7 +81,16 @@ function StartState:render()
 
 	-- reset the color
 	love.graphics.setColor(103/255, 1, 1, 0.65)
-
-	self.characterBug:render()
+	
+	displayInstructions()	
 
 end
+
+function displayInstructions()
+	love.graphics.setFont(gFonts['small'])
+	love.graphics.setColor(1, 1, 0.56, 0.86)
+	love.graphics.printf(
+	"Press T to return to the Testing State. Up/Down to select mode.\nDoesn't work.", 
+	0, 8, VIRTUAL_WIDTH, 'center')
+end
+

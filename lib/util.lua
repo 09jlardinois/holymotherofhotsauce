@@ -35,3 +35,12 @@ function capitalizeMe(targetstring)
 	return firstletter .. alltherestoftheletters
 
 end
+
+function quitMe()
+
+	if love.keyboard.wasPressed('escape') then
+		love.event.quit()
+	end
+	
+end
+

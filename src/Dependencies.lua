@@ -26,8 +26,8 @@ require 'src/states/BaseState'
 require 'src/states/StartState'
 require 'src/states/TestingState'
 
--- bug class
-require 'src/Bug'
+-- Character Class
+require 'src/Character'
 
 -- Sprite Handler and Animator Classes
 require 'src/SpriteHandler'

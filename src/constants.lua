@@ -34,4 +34,4 @@ gPrefixModes = {
 
 ANIMATION_TICKER = 0.5
 
-PADDLE_SPEED = 30
+WALK_SPEED = 30

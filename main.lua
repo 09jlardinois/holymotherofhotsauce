@@ -66,7 +66,7 @@ function love.load()
 		['arrows'] = love.graphics.newImage('graphics/arrows.png'),
 		['hearts'] = love.graphics.newImage('graphics/hearts.png'),
 		['particle'] = love.graphics.newImage('graphics/particle.png'),
-		['buganimation'] = love.graphics.newImage('graphics/buganimation.png')
+		['character'] = love.graphics.newImage('graphics/characteranimation.png')
 	}
 
 	-- initialize our virtual resolution, which will be rendered within our
@@ -111,10 +111,11 @@ function love.load()
 	-- 5. 'victory' (the current level is over, with a victory jingle)
 	-- 6. 'game-over' (the player has lost; display score and allow restart)
 	gStateMachine = StateMachine {
-		['start'] = function() return StartState() end
+		['start'] = function() return StartState() end,
+		['test'] = function() return TestingState() end
 	}
 
-	gStateMachine:change('start')
+	gStateMachine:change('test')
 
 	-- a table we'll use to keep track of which keys have been pressed this
 	-- frame, to get around the fact that LÖVE's default callback won't let us
@@ -155,6 +156,8 @@ end
 function love.update(dt)
 	-- this time, we pass in dt to the state object we're currently using
 	gStateMachine:update(dt)
+
+	quitMe()
 
 	-- reset keys pressed
 	love.keyboard.keysPressed = {}
@@ -220,18 +223,10 @@ function love.draw()
 	-- use the state machine to defer rendering to the current state we're in
 	gStateMachine:render()
 	
-	displayCrap()
-	
 	-- display FPS for debugging; simply comment out to remove
 	--displayFPS()
 
 	push:apply('end')
-end
-
-function displayCrap()
-	love.graphics.setFont(gFonts['small'])
-	love.graphics.setColor(1, 1, 1, 0.5)
-	love.graphics.printf("Move character with w/a/s/d. Select mode that doesn't work with up/down", 0, 20, VIRTUAL_WIDTH, 'center')
 end
 
 --[[

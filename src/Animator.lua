@@ -4,8 +4,6 @@ gAnimationSets = {}
 
 function Animator:init(atlasfile, x, y, stringatlasfriendlyname, totalanimationstates, numberofframesperstate, booleanstatictilesize)
 
-	atlasfile:setWrap('clampzero', 'clampzero')
-
 	-- Define the Animator's operation mode. Either static tile size or variable.
 	if booleanstatictilesize ~= false then
 		self.isTileSizeStatic = true
