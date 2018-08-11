@@ -62,6 +62,8 @@ end
 
 function Animator:update(dt)
 
+    local frameStop = self.animationframe
+
     -- Movement Detector
     self.dX = self.x - self.storeX
     self.dY = self.y - self.storeY
@@ -71,12 +73,12 @@ function Animator:update(dt)
     -- NOTE: This cycle assumes a sprite sheet with 3 animation frames, left, center, right; where center frame is the starting & default frame.
     -- The frame cycle goes, center, left, center, right. It oscillates.
     -- This is designed to work with RPG Maker VX Ace format characters made with Game Character Hub in 3 x 4 format. So, a walking character.
-    
-    if dV ~= 0 then
-    
+      
     -- This is the animation timer.
     if self.animationCounter >= self.animationTicker then
-        
+
+    if dV ~= 0 then
+    
         -- Changes the Sprite Index based on Frame Index.
         -- Must happen at top.
 
@@ -97,9 +99,12 @@ function Animator:update(dt)
  
         -- Takes any ticker overshoot and adds it back to the next tick cycle. - Perfect timing, no waste.
         self.animationCounter = (self.animationCounter % self.animationTicker) * self.animationTicker
-            
+    elseif dV == 0 and frameStop ~= 2 then
+        self.animationframe = 2
     end
     
+    else
+
     end
     
     self.animationQuadIndex = self.animationframe + 3 * (self.animationstate - 1)
