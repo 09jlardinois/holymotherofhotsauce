@@ -194,6 +194,12 @@ function love.draw()
   push:apply('end')
 end
 
+function displayCrap()
+    love.graphics.setFont(gFonts['small'])
+    love.graphics.setColor(1, 1, 1, 0.5)
+    love.graphics.print("Move character with w/a/s/d. Select mode that doesn't work with up/down")    
+end
+
 --[[
     Renders the current FPS.
 ]]

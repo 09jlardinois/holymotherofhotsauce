@@ -22,22 +22,22 @@ function Bug:update(dt)
     
     self.animator:update(dt)
     
-    if love.keyboard.isDown('w', 'up') then
+    if love.keyboard.isDown('w') then
         self.y = self.y - speed * dt
         self.animator.animationstate = 4
     end
     
-    if love.keyboard.isDown('s', 'down') then
+    if love.keyboard.isDown('s') then
         self.y = self.y + speed * dt
         self.animator.animationstate = 1
     end
     
-    if love.keyboard.isDown('d', 'right') then
+    if love.keyboard.isDown('d') then
         self.x = self.x + speed * dt
         self.animator.animationstate = 3
     end
     
-    if love.keyboard.isDown('a', 'left') then
+    if love.keyboard.isDown('a') then
         self.x = self.x - speed * dt
         self.animator.animationstate = 2
     end
