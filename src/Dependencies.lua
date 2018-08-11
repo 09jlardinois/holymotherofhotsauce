@@ -34,6 +34,3 @@ require 'src/Animator'
 
 -- Add my utilities library.
 require 'lib/util'
-
-require 'src/Paddle'
-require 'src/Util'

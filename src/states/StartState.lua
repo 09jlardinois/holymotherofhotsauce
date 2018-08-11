@@ -22,7 +22,6 @@ local highlighted = 1
 
 function StartState:init()
   
-  self.paddle = Paddle()
   self.characterBug = Bug()
 
 end
@@ -41,13 +40,9 @@ function StartState:update(dt)
   
   self.characterBug:update(dt)
   
-  -- update positions based on velocity
-  self.paddle:update(dt)
-  
 end
 
 function StartState:render()
-  self.paddle:render()
 
   -- title
   love.graphics.setFont(gFonts['large'])
